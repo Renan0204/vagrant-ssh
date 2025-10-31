@@ -1,0 +1,17 @@
+name: Deploy Automático no Runner Local
+
+on:
+  push:
+    branches:
+      - main   # O workflow roda sempre que você faz push na branch "main"
+
+jobs:
+  deploy:
+    runs-on: self-hosted   # Importante: usa o runner da sua VM
+    steps:
+      - name: Atualizar site na VM
+        run: |
+          cd /var/www/html
+          sudo git fetch --all
+          sudo git reset --hard origin/main
+          sudo systemctl reload nginx
