@@ -1,0 +1,8 @@
+# Ignorar arquivos do Vagrant
+.vagrant/
+Vagrantfile
+
+# Arquivos temporários
+*.log
+*.tmp
+*.swp
